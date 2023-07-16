@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{graphicx} % For rotating text
+\usepackage{makecell} % For vertical text
+\usepackage{array} % For adjusting column width
+\usepackage{xcolor} % For defining custom colors
+\usepackage{tikz} % For heat map coloring
+\usepackage{textgreek} % For Greek letters
+\usepackage{afterpage} % For separate page
+
+% Define custom colors for circles and families
+\definecolor{circle-green}{RGB}{102, 204, 102}
+\definecolor{circle-red}{RGB}{204, 102, 102}
+\definecolor{circle-yellow}{RGB}{255, 204, 0}
+\definecolor{family-vaes}{RGB}{231, 180, 229}
+\definecolor{family-gans}{RGB}{166, 208, 255}
+\definecolor{family-flows}{RGB}{199, 230, 204}
+\definecolor{family-autoregressive}{RGB}{255, 213, 153}
+\definecolor{family-hybrid}{RGB}{191, 191, 191}
+\definecolor{family-diffusion}{RGB}{255, 191, 128}
+\definecolor{family-other}{RGB}{229, 204, 255}
+
+% Define circular cell command with colored circles
+\newcommand{\heatmapcell}[1]{\begin{tikzpicture}\node[draw,circle,minimum size=0.8cm,fill=#1,text=black] {};\end{tikzpicture}}
+
+% Define family command with transparent background
+\newcommand{\family}[2]{\begin{tikzpicture}[baseline={(N.base)}]\node[rectangle,rounded corners=3pt,inner sep=1pt,fill=#1,text=white,text width=5cm]{\Large \textbf{#2}};\end{tikzpicture}}
+
+\title{\textbf{Application Matrix of Families of Generative Models for Computer Vision}}
+\author{Ed Mwanza, PhD candidate Comp. Sci.}
+
+\begin{document}
+
+\maketitle
+
+\afterpage{%
+\clearpage
+\thispagestyle{empty}
+
+\textcolor{family-vaes}{\family{family-vaes}{Variational Autoencoders (VAEs)}:}
+\begin{itemize}
+  \item Vanilla VAE
+  \item $\beta$-VAE
+  \item VQ-VAE
+  \item VAE-GAN
+  \item CVAE (Conditional VAE)
+  \item DFC-VAE (Disentangled Feature Control VAE)
+  \item HiVAE (Hierarchical VAE)
+  \item VLAE (Variational Lossy Autoencoder)
+  \item AdaVAE (Adaptive VAE)
+  \item SCVAE (Semi-Supervised Conditional VAE)
+  \item AAE (Adversarial Autoencoder)
+\end{itemize}
+
+\textcolor{family-gans}{\family{family-gans}{Generative Adversarial Networks (GANs)}:}
+\begin{itemize}
+  \item Vanilla GAN
+  \item DCGAN (Deep Convolutional GAN)
+  \item CGAN (Conditional GAN)
+  \item WGAN (Wasserstein GAN)
+  \item LSGAN (Least Squares GAN)
+  \item CycleGAN
+  \item StyleGAN
+  \item ProGAN (Progressive GAN)
+  \item BigGAN
+  \item SNGAN (Spectral Normalization GAN)
+  \item GLO (Generative Latent Optimization)
+  \item MSG-GAN (Multi-Scale Gradient GAN)
+  \item RGAN (Relativistic GAN)
+  \item BiGAN (Bidirectional GAN)
+  \item TripleGAN
+  \item MoCoGAN (Motion Conditioned GAN)
+  \item StarGAN
+  \item DALL-E (GAN-based image generation model by OpenAI)
+  \item Swapping Autoencoder GAN (SWAGAN)
+\end{itemize}
+
+\textcolor{family-flows}{\family{family-flows}{Flow-based Models}:}
+\begin{itemize}
+  \item RealNVP (Real-valued Non-Volume Preserving)
+  \item Glow (Generative Flow with Invertible 1x1 Convolutions)
+  \item FFJORD (Free-form Jacobian Adversarially Regularized Dynamics)
+  \item CNFs (Continuous Normalizing Flows)
+  \item MAF (Masked Autoregressive Flow)
+  \item IAF (Inverse Autoregressive Flow)
+  \item Neural Spline Flows
+  \item DAF (Denoising Autoencoder Flow)
+  \item AugVAE (Augmented VAE)
+\end{itemize}
+
+\textcolor{family-autoregressive}{\family{family-autoregressive}{Auto-regressive Models}:}
+\begin{itemize}
+  \item PixelRNN
+  \item PixelCNN
+  \item WaveNet
+  \item NADE (Neural Autoregressive Distribution Estimation)
+  \item RNADE (Rectified NADE)
+  \item MD-RNN (Mixture Density RNN)
+  \item DRAW (Deep Recurrent Attentive Writer)
+  \item CoNADE (Compositional NADE)
+  \item Transformer-based autoregressive models (e.g., Image Transformer)
+\end{itemize}
+
+\textcolor{family-hybrid}{\family{family-hybrid}{Hybrid Models}:}
+\begin{itemize}
+  \item VQ-VAE-2 (Vector Quantized VAE)
+  \item GANs with VAEs (e.g., $\beta$-VAE-GAN)
+  \item JEM (Joint Energy-Based Model)
+\end{itemize}
+
+\textcolor{family-diffusion}{\family{family-diffusion}{Diffusion Models}:}
+\begin{itemize}
+  \item Noise-Contrastive Estimation (NCE)
+  \item Score-Based Generative Models (e.g., PixelSNAIL)
+\end{itemize}
+
+\textcolor{family-other}{\family{family-other}{Other notable models}:}
+\begin{itemize}
+  \item Adversarial Autoencoders
+  \item ALI (Adversarially Learned Inference)
+  \item Adversarial Variational Bayes (AVB)
+  \item GANomaly
+  \item Skip-GANomaly
+  \item URGANS (Unitary Evolution Recurrent GAN)
+  \item VAE-ResNet
+  \item OpenAI's CLIP (Contrastive Language-Image Pretraining)
+  \item Energy-based Models (EBMs) like PixelSNAIL, PixelDTN, etc.
+\end{itemize}
+
+\clearpage
+}
+
+\begin{table}[!htbp]
+  \centering
+  \caption{Application Matrix of Families of Generative Models for Computer Vision}
+  
+  \vspace{1em}
+  
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|l|*{7}{>{\centering\arraybackslash}m{1.6cm}|}} % Adjust column width as needed
+      \hline
+      \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Models}}} & \multicolumn{7}{c|}{\textbf{Applications}} \\
+      \cline{2-8}
+      & \textbf{\textcolor{black}{Data Augmentation}} & \textbf{\textcolor{black}{Super Resolution}} & \textbf{\textcolor{black}{Inpainting}} & \textbf{\textcolor{black}{Denoising}} & \textbf{\textcolor{black}{Style Transfer}} & \textbf{\textcolor{black}{Object Transfiguration}} & \textbf{\textcolor{black}{Image Colorization}} \\
+      \hline
+      \textcolor{family-vaes}{\family{family-vaes}{\textcolor{black}{VAEs}}} & \heatmapcell{circle-green} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} \\
+      \hline
+      \textcolor{family-gans}{\family{family-gans}{\textcolor{black}{GANs}}} & \heatmapcell{circle-green} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-green} & \heatmapcell{circle-green} & \heatmapcell{circle-red} \\
+      \hline
+      \textcolor{family-flows}{\family{family-flows}{\textcolor{black}{Flow-based Models}}} & \heatmapcell{circle-green} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} \\
+      \hline
+      \textcolor{family-autoregressive}{\family{family-autoregressive}{\textcolor{black}{Auto-regressive Models}}} & \heatmapcell{circle-green} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} \\
+      \hline
+      \textcolor{family-hybrid}{\family{family-hybrid}{\textcolor{black}{Hybrid Models}}} & \heatmapcell{circle-green} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} \\
+      \hline
+      \textcolor{family-diffusion}{\family{family-diffusion}{\textcolor{black}{Diffusion Models}}} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} \\
+      \hline
+      \textcolor{family-other}{\family{family-other}{\textcolor{black}{Other notable models}}} & \heatmapcell{circle-red} & \heatmapcell{circle-green} & \heatmapcell{circle-yellow} & \heatmapcell{circle-yellow} & \heatmapcell{circle-red} & \heatmapcell{circle-red} & \heatmapcell{circle-red} \\
+      \hline
+    \end{tabular}
+  }
+  
+  \vspace{1em}
+  
+  \hspace*{\fill}
+  \begin{minipage}{1.0\textwidth}
+    \begin{flushleft}
+      \begin{tabular}{l}
+        \textcolor{circle-green}{\textbullet} Model fits the application \\
+        \textcolor{circle-red}{\textbullet} Model doesn't fit the application \\
+        \textcolor{circle-yellow}{\textbullet} Unexplored application
+      \end{tabular}
+    \end{flushleft}
+  \end{minipage}
+\end{table}
+
+\end{document}
